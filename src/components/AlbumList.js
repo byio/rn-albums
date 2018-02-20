@@ -4,7 +4,22 @@ import { Text, View } from 'react-native';
 
 // make component
 class AlbumList extends Component {
-  
+  // init state (class-level property)
+  state = {
+    albums: []
+  };
+
+  // componentWillMount
+  componentWillMount () {
+    fetch('https://rallycoding.herokuapp.com/api/music_albums')
+      .then(res => res.json())
+      .then(resData => {
+        this.setState({
+          albums: resData
+        });
+      });
+  }
+
   // render method
   render () {
     return (
