@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
+// import other components
+import AlbumDetails from './AlbumDetails';
+
 // make component
 class AlbumList extends Component {
   // init state (class-level property)
@@ -20,11 +23,19 @@ class AlbumList extends Component {
       });
   }
 
+  // helper methods
+  renderAlbums () {
+    return this.state.albums.map(album =>
+      <AlbumDetails key={album.title} album={album}/>
+    );
+  }
+
   // render method
   render () {
+    console.log(this.state);
     return (
       <View>
-        <Text>AlbumList Class-based Component</Text>
+        {this.renderAlbums()}
       </View>
     );
   }
