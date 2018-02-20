@@ -6,10 +6,10 @@ import { AppRegistry, View } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
-// Create a component
+// Create a component ({flex: 1} is needed for scrolling to work)
 const App = () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header headerText={'Albums'}/>
       <AlbumList />
     </View>
