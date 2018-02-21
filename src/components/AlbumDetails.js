@@ -1,6 +1,6 @@
 // import libraries
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 
 // import other necessary components
 import Card from './Card';
@@ -10,7 +10,7 @@ import Button from './Button';
 // make component (destructure album from props)
 const AlbumDetails = ({ album }) => {
   // destructure album object
-  const { title, artist, thumbnail_image, image } = album;
+  const { title, artist, thumbnail_image, image, url } = album;
   // detructure styles object
   const {
     headerTextContainerStyle,
@@ -19,6 +19,11 @@ const AlbumDetails = ({ album }) => {
     thumbnailStyle,
     imageStyle
   } = styles;
+
+  // handle <Button/> press function (buy now)
+  const handleBuyNow = () => {
+    Linking.openURL(url);
+  };
 
   return (
     <Card>
@@ -41,7 +46,9 @@ const AlbumDetails = ({ album }) => {
         />
       </CardSection>
       <CardSection>
-        <Button />
+        <Button onPressProp={handleBuyNow}>
+          Buy Now
+        </Button>
       </CardSection>
     </Card>
   );
