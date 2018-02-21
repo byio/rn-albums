@@ -5,6 +5,7 @@ import { View, Text, Image } from 'react-native';
 // import other necessary components
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 // make component (destructure album from props)
 const AlbumDetails = ({ album }) => {
@@ -38,6 +39,9 @@ const AlbumDetails = ({ album }) => {
           style={imageStyle}
           source={{ uri: image }}
         />
+      </CardSection>
+      <CardSection>
+        <Button />
       </CardSection>
     </Card>
   );
